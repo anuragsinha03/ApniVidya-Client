@@ -18,7 +18,8 @@ function InsideChat() {
 	const socket = useRef();
 
 	useEffect(() => {
-		socket.current = io("http://13.51.235.230:3002");
+		// socket.current = io("http://13.51.235.230:3002");
+		socket.current = io("https://apnividya-server.onrender.com/");
 		socket.current.emit("add-user", localStorage.getItem("UCID_TOKEN"));
 	}, []);
 

@@ -1,4 +1,4 @@
-const commonApiEndpoint = "http://13.51.235.230:8080/";
+const commonApiEndpoint = "https://apnividya-server.onrender.com/";
 
 export default commonApiEndpoint;
 

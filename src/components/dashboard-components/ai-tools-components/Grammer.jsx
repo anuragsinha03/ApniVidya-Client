@@ -12,10 +12,14 @@ function Grammer() {
 	const handleSubmit = async e => {
 		e.preventDefault();
 		setAns(prevAns => [...prevAns, { formSelf: true, msg: question }]);
-		const response = await smartNotesApiEndpoint({ inputNote: question });
+		const response = await smartNotesApiEndpoint({
+			inputNote:
+				"check for grammatical mistakes and fix them and dont add markdowns just return simple plain text: " +
+				question,
+		});
 		setAns(prevAns => [
 			...prevAns,
-			{ formSelf: false, msg: response.data.summary },
+			{ formSelf: false, msg: response.data.answer },
 		]);
 		setQuestion("");
 	};

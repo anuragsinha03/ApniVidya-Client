@@ -10,8 +10,13 @@ import smartNotesApiEndpoint from "../../../apiendpoints/smartNotesApiEndpoint";
 async function handleSubmit(e, notesHeading) {
 	e.preventDefault();
 	const result = document.getElementById("result");
-	const retval = await smartNotesApiEndpoint({ inputNote: notesHeading });
-	result.innerHTML = retval.data.summary;
+	const retval = await smartNotesApiEndpoint({
+		inputNote:
+			"if the text is too large summerize it, otherwise answer any query in medium length text and dont add markdowns just return simple plain text: " +
+			notesHeading,
+	});
+	// console.log(retval.data.answer);
+	result.innerHTML = retval.data.answer;
 }
 
 function Notes() {
@@ -54,7 +59,7 @@ function Notes() {
 									GENERATE
 								</button>
 							</form>
-							<div className='min-w-[40rem] max-w-[40rem] text-[24px] text-white '>
+							{/* <div className='min-w-[40rem] max-w-[40rem] text-[24px] text-white '>
 								The OpenAI API is a set of machine learning
 								models and algorithms that are made available
 								for developers to use in their own applications.
@@ -63,7 +68,7 @@ function Notes() {
 								including text generation, summarization,
 								question-answering, sentiment analysis, and
 								language translation.
-							</div>
+							</div> */}
 						</div>
 						<div
 							className=' text-[28px] text-white '

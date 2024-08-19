@@ -19,7 +19,7 @@ function InsideChat() {
 
 	useEffect(() => {
 		// socket.current = io("http://13.51.235.230:3002");
-		// socket.current = io("http://localhost:3002"); local port
+		// socket.current = io("http://localhost:8080"); local port
 		// socket.current = io("https://apnividya.anuragsinha.tech/socket-io");
 		socket.current = io("https://apnividya-server.onrender.com/");
 		socket.current.emit("add-user", localStorage.getItem("UCID_TOKEN"));
@@ -47,6 +47,7 @@ function InsideChat() {
 		const msgs = [...allMessages];
 		allMessages.push({ fromSelf: true, message: message.message });
 		setAllMessages(msgs);
+		setMessage({ message: "" });
 	};
 
 	useEffect(() => {
@@ -121,7 +122,7 @@ function InsideChat() {
 							className='flex justify-center items-center gap-4 bg-[#fff] py-4 px-8 '>
 							<input
 								onChange={handleChange}
-								values={message.message}
+								value={message.message}
 								name='message'
 								className='bg-[#DBDCDC] h-[5rem] w-full rounded-[20px] px-[30px] text-[28px]'
 								type='text'

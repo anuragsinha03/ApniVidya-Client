@@ -21,6 +21,7 @@ function Sentiment() {
 			...prevAns,
 			{ formSelf: false, msg: response.data.answer },
 		]);
+		setQuestion("");
 	};
 	return (
 		<>
@@ -72,6 +73,7 @@ function Sentiment() {
 							onSubmit={handleSubmit}>
 							<input
 								onChange={e => setQuestion(e.target.value)}
+								value={question}
 								className='bg-[#DBDCDC] h-[5rem] w-full rounded-[20px] px-[30px] text-[28px]'
 								type='text'
 								placeholder='SENTENCES WITH SOME VALID SENTIMENTS...'

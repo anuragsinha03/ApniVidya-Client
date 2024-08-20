@@ -66,6 +66,7 @@ function Grammer() {
 								className='bg-[#DBDCDC] h-[5rem] w-full rounded-[20px] px-[30px] text-[28px]'
 								placeholder='TEXT TO BE GRAMMATICALLY CORRECTED...'
 								onChange={e => setQuestion(e.target.value)}
+								value={question}
 							/>
 							<button
 								className='bg-[#FFC100] h-[5rem] px-[30px] rounded-[20px] text-[28px]'

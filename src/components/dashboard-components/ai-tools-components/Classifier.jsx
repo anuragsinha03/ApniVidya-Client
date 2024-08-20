@@ -22,6 +22,7 @@ function Classifier() {
 			...prevAns,
 			{ formSelf: false, msg: response.data.answer },
 		]);
+		setQuestion("");
 	};
 	return (
 		<>
@@ -48,9 +49,15 @@ function Classifier() {
 							<ReceiveMessage message='Apple: Technology/Electronics, Facebook: Social Media, Fedex: Logistics/Courier and Delivery Services' />
 							{ans.map(items =>
 								items.formSelf === true ? (
-									<SendMessage message={items.msg} />
+									<SendMessage
+										key={items.msg}
+										message={items.msg}
+									/>
 								) : (
-									<ReceiveMessage message={items.msg} />
+									<ReceiveMessage
+										key={items.msg}
+										message={items.msg}
+									/>
 								)
 							)}
 						</div>
@@ -60,6 +67,7 @@ function Classifier() {
 							onSubmit={handleSubmit}>
 							<input
 								onChange={e => setQuestion(e.target.value)}
+								value={question}
 								className='bg-[#DBDCDC] h-[5rem] w-full rounded-[20px] px-[30px] text-[28px]'
 								type='text'
 								placeholder='SEND DATA ITEMS AND CLASSES...'

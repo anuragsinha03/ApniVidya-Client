@@ -21,6 +21,8 @@ function Qna() {
 			...prevAns,
 			{ formSelf: false, msg: response.data.answer },
 		]);
+
+		setQuestion("");
 	};
 	return (
 		<>
@@ -61,6 +63,7 @@ function Qna() {
 							onSubmit={handleSubmit}>
 							<input
 								onChange={e => setQuestion(e.target.value)}
+								value={question}
 								className='bg-[#DBDCDC] h-[5rem] w-full rounded-[20px] px-[30px] text-[28px]'
 								type='text'
 								placeholder='ASK A FACTUAL QUESTION...'
